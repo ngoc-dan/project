@@ -1,0 +1,11 @@
+#include "datatype.h"
+void displayMenu();
+void displayStudents();
+void addStudent();
+void editStudent();
+void deleteStudent();
+void searchStudentByName();
+void sortStudentsByName();
+void saveToFile();
+void loadFromFile();
+void pressToExitOrReturn();
