@@ -8,6 +8,7 @@ Student students[100];
 Teacher teachers[100];
 int number = 0;
 int numbers = 0;
+
 void printMenuHome(){
 	printf("\n");
 	printf("\t   CHOOSE YOUR ROLE\n");
@@ -16,6 +17,7 @@ void printMenuHome(){
 	printf("\t[0] Exit the program.\n");
 	printf("\t======================\n");
 }
+
 void printMenu(){
 	printf("\n");
 	printf("\t\tMENU\n");
@@ -51,11 +53,12 @@ void inputMenu(){
 		}
 	}while(choice != 0);
 }
+
 void inputStudentMenu(){
 	loadFromFileStudent();
-    while (1) {
+	int choice;
+    do {
     	displayMenuStudent();
-        int choice;
         printf("Moi Ban nhap lua chon : ");
         scanf("%d", &choice);
         getchar(); 
@@ -91,22 +94,22 @@ void inputStudentMenu(){
                 pressToExitOrReturn();
                 break;
             case 8:
-            	system("cls");
-                printf("thoat khoi chuong trinh ...\n");
                 saveToFileStudent();
-                exit(0);
+                break;
             default:
             	system("cls");
                 printf("luu chon khong hop le.\n");
                 pressToExitOrReturn();
         }
-    }
+    }while(choice != 8);
 }
+
 void inputTeacherMenu(){
 	loadFromFileTeacher();
-    while (1) {
+	int choice;
+    do{
     	displayMenuTeacher();
-        int choice;
+        
         printf("Moi Ban nhap lua chon : ");
         scanf("%d", &choice);
         getchar(); 
@@ -142,22 +145,22 @@ void inputTeacherMenu(){
                 pressToExitOrReturn();
                 break;
             case 8:
-            	system("cls");
-                printf("thoat khoi chuong trinh ...\n");
                 saveToFileTeacher();
-                exit(0);
+                break;
             default:
             	system("cls");
                 printf("luu chon khong hop le.\n");
                 pressToExitOrReturn();
         }
-    }
+    }while(choice != 8);
 }
+
 void printExit(){
 	printf("\t====Thank You======\n");
 	printf("\t====See You Soon===");
 	printf("\n");
 }
+
 void displayMenuStudent() {
 	system("cls");
     printf("***Student Management System Using C***\n");
@@ -199,7 +202,7 @@ void displayMenuTeacher() {
 	printf("       |-------------------------------------|\n");
 	printf("       | [6] sap sep giao vien theo ten.     |\n");
 	printf("       |-------------------------------------|\n");
-	printf("       | [7] luu lai danh sach giao sinh.     |\n");
+	printf("       | [7] luu lai danh sach giao vien.     |\n");
 	printf("       |-------------------------------------|\n");
 	printf("       | [8] Exit.                           |\n");
 	printf("       =======================================\n");
@@ -230,7 +233,7 @@ void displayTeachers() {
     printf("\n| %-3s | %-20s | %-30s | %-15s |\n", "ID", "Name", "Email", "Phone");
     printf("=================================================================================\n");
     for ( i = 0; i < numbers; i++) {
-        printf("| %-3d | %-20s | %-30s | %-15s |\n", students[i].id, students[i].name, students[i].email, students[i].phone);
+        printf("| %-3d | %-20s | %-30s | %-15s |\n", teachers[i].id, teachers[i].name, teachers[i].email, teachers[i].phone);
         printf("---------------------------------------------------------------------------------\n");
     }
     printf("\n");
@@ -526,7 +529,6 @@ int validateInput(Student new_student, int skip_id) {
     return 1;
 }
 
-
 void saveToFileStudent() {
 	system("cls");
     FILE *file = fopen("students.dat", "wb");
@@ -581,7 +583,7 @@ void pressToExitOrReturn() {
 
     if (choice == '0') {
         printf("Exiting...\n");
-        return 0; 
+        return ; 
     } else if (choice == '1') {
     	
         return;
