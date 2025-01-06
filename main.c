@@ -9,7 +9,7 @@ int main(int argc, char *argv[]) {
 	int choice;
 	do{
 		printMenuHome();
-		printf("\tEnter the choice: ");
+		printf("\tNhap lua chon : ");
 		scanf("%d", &choice);
 		printf("\n");
 		fflush(stdin);
@@ -18,12 +18,14 @@ int main(int argc, char *argv[]) {
 				system("cls");
 				inputMenu();
 				break;
-			case 0:
+			case 2:
 				printExit();
 				break;
 			default:
+				system("cls");
 				printf("\tsai cu phap!\n");
+				
 		}
-	}while(choice != 0);
+	}while(choice != 2);
 	return 0;
 }

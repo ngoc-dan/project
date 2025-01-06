@@ -26,4 +26,4 @@ void inputMenu();
 void inputStudentMenu();
 void inputTeacherMenu();
 void printExit();
-
+ 
